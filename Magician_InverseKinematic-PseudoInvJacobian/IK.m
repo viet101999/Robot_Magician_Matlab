@@ -1,4 +1,4 @@
-function varargout = IK(varargin)
+function varargout = GUI_Magician(varargin)
 % IK MATLAB code for IK.fig
 %      IK, by itself, creates a new IK or raises the existing
 %      singleton*.
@@ -62,10 +62,10 @@ guidata(hObject, handles);
 % UIWAIT makes IK wait for user response (see UIRESUME)
 % uiwait(handles.figure1);
 
-% delete(instrfind({'Port'}, {'COM7'}))
-% clear a;
-% global a;
-% a = arduino('COM7');
+delete(instrfind({'Port'}, {'COM7'}))
+clear a;
+global a;
+a = arduino('COM7');
 
 dem=0;
 assignin('base','dem',dem); 
@@ -115,7 +115,7 @@ set( handles.Theta_3,'String', num2str(-157));
 
 assignin('base','movement',0);
 
-% robot_magican(a,round(jinit(1,1)),round(jinit(2,1)),-round(jinit(3,1)),3);
+robot_magican(a,round(jinit(1,1)),round(jinit(2,1)),-round(jinit(3,1)),3);
 
 
 
@@ -210,7 +210,7 @@ if EucError <10^-3
    handles.Theta_1.String = num2str(j1);
    handles.Theta_2.String = num2str(j2);
    handles.Theta_3.String = num2str(j3);
-%    robot_magican(a,round(j1),round(j2),-round(j3),tocdo);
+   robot_magican(a,round(j1),round(j2),-round(j3),tocdo);
    %assignin('base','dem',dem);
 end 
 
@@ -461,7 +461,7 @@ if EucError <10^-2
    handles.pos_x.String = num2str(pos_new(1));
    handles.pos_y.String = num2str(pos_new(2));
    handles.pos_z.String = num2str(pos_new(3));
-%    robot_magican(a,round(j1),round(j2),-round(j3),tocdo);
+   robot_magican(a,round(j1),round(j2),-round(j3),tocdo);
    %assignin('base','dem',dem);
 end 
 
